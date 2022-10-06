@@ -40,6 +40,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   salomon_bottom_bar: ^3.3.1
+  get: ^4.6.5
 
 dev_dependencies:
   flutter_test:
@@ -85,17 +86,51 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
+  fonts:
+    - family: Outfit
+      fonts:
+        - asset: lib/assets/fonts/Outfit-Regular.ttf
+        - asset: lib/assets/fonts/Outfit-Bold.ttf
+          weight: 700
+    - family: PlayfairDisplay
+      fonts:
+        - asset: lib/assets/fonts/PlayfairDisplay-Regular.ttf
+        - asset: lib/assets/fonts/PlayfairDisplay-Bold.ttf
+          weight: 700
+    - family: Cinzel
+      fonts:
+        - asset: lib/assets/fonts/Cinzel-Regular.ttf
+        - asset: lib/assets/fonts/Cinzel-Bold.ttf
+          weight: 700
+    - family: PressStart2P
+      fonts:
+        - asset: lib/assets/fonts/PressStart2P-Regular.ttf
+    - family: RacingSansOne
+      fonts:
+        - asset: lib/assets/fonts/RacingSansOne-Regular.ttf
+    - family: ArchivoBlack
+      fonts:
+        - asset: lib/assets/fonts/ArchivoBlack-Regular.ttf 
+    - family: Aclonica
+      fonts:
+        - asset: lib/assets/fonts/Aclonica-Regular.ttf
+    - family: NotoSansKR
+      fonts:
+        - asset: lib/assets/fonts/NotoSansKR-Regular.ttf
+        - asset: lib/assets/fonts/NotoSansKR-Bold.ttf
+          weight: 700
+    - family: NotoSerifKR
+      fonts:
+        - asset: lib/assets/fonts/NotoSerifKR-Regular.ttf
+        - asset: lib/assets/fonts/NotoSerifKR-Bold.ttf
+          weight: 700
+    - family: ZCOOLQingKeHuangYou
+      fonts:
+        - asset: lib/assets/fonts/ZCOOLQingKeHuangYou-Regular.ttf
+    - family: ZCOOLXiaoWei
+      fonts:
+        - asset: lib/assets/fonts/ZCOOLXiaoWei-Regular.ttf
+    
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
