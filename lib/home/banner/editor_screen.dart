@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
-import 'package:led_banner/home/banner/bottom_sheet_widget.dart';
+import 'package:led_banner/home/banner/widgets/bottom_sheet_widget.dart';
 import 'package:led_banner/home/controllers/editor_controller.dart';
 
 class EditorScreen extends StatefulWidget {
@@ -15,7 +15,6 @@ class EditorScreen extends StatefulWidget {
 
 class _EditorScreenState extends State<EditorScreen> {
   EditorController editorController = Get.put(EditorController());
-  
 
   void showBottomSheet() => showModalBottomSheet(
       backgroundColor: Colors.transparent,
@@ -36,8 +35,9 @@ class _EditorScreenState extends State<EditorScreen> {
         Expanded(
             child: GetBuilder<EditorController>(
           builder: (controller) => Center(
-              child: Text(editorController.text.value,
-                  style: editorController.fontStyle.value)),
+            child: Text(editorController.text.value,
+                style: editorController.fontStyle.value),
+          ),
         )),
         Container(
           alignment: Alignment.bottomCenter,

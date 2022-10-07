@@ -15,8 +15,9 @@ class TemplatesScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'Templates',
-          style: GoogleFonts.outfit(fontSize: 22),
+          'Templates', 
+          style: GoogleFonts.outfit(fontSize: 22, color: Colors.white), 
+          
         ),
         elevation: 0,
         backgroundColor: Colors.transparent,

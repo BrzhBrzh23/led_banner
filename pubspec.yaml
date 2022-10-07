@@ -116,13 +116,13 @@ flutter:
         - asset: lib/assets/fonts/Aclonica-Regular.ttf
     - family: NotoSansKR
       fonts:
-        - asset: lib/assets/fonts/NotoSansKR-Regular.ttf
-        - asset: lib/assets/fonts/NotoSansKR-Bold.ttf
+        - asset: lib/assets/fonts/NotoSansKR-Regular.otf
+        - asset: lib/assets/fonts/NotoSansKR-Bold.otf
           weight: 700
     - family: NotoSerifKR
       fonts:
-        - asset: lib/assets/fonts/NotoSerifKR-Regular.ttf
-        - asset: lib/assets/fonts/NotoSerifKR-Bold.ttf
+        - asset: lib/assets/fonts/NotoSerifKR-Regular.otf
+        - asset: lib/assets/fonts/NotoSerifKR-Bold.otf
           weight: 700
     - family: ZCOOLQingKeHuangYou
       fonts:
