@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
 import 'package:led_banner/home/banner/widgets/bottom_sheet_widget.dart';
 import 'package:led_banner/home/controllers/editor_controller.dart';
+import 'package:marquee/marquee.dart';
 
 class EditorScreen extends StatefulWidget {
   const EditorScreen({super.key});
@@ -41,14 +42,35 @@ class _EditorScreenState extends State<EditorScreen> {
                     width: MediaQuery.of(context).size.width,
                     child: GetBuilder<EditorController>(
                       builder: (controller) => Center(
-                        child: (editorController.isRotated.value == false)
-                            ? Text(editorController.text.value,
-                                style: editorController.fontStyle.value)
-                            : RotatedBox(
-                                quarterTurns: 1,
-                                child: Text(editorController.text.value,
-                                    style: editorController.fontStyle.value),
-                              ),
+                        child: (editorController.isAnimated.value == false ||
+                                editorController.text.value == '')
+                            ? ((editorController.isRotated.value == false)
+                                ? Text(editorController.text.value,
+                                    style: editorController.fontStyle.value)
+                                : RotatedBox(
+                                    quarterTurns: 1,
+                                    child: Text(editorController.text.value,
+                                        style:
+                                            editorController.fontStyle.value),
+                                  ))
+                            : ((editorController.isRotated.value == false)
+                                ? Marquee(
+                                    text: editorController.text.value,
+                                    style: editorController.fontStyle.value,
+                                    velocity:
+                                        editorController.animationSpeed.value,
+                                    blankSpace: 150,
+                                  )
+                                : RotatedBox(
+                                    quarterTurns: 1,
+                                    child: Marquee(
+                                      text: editorController.text.value,
+                                      style: editorController.fontStyle.value,
+                                      velocity:
+                                          editorController.animationSpeed.value,
+                                      blankSpace: 150,
+                                    ),
+                                  )),
                       ),
                     )),
               ],

@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:marquee/marquee.dart';
 
 class CustomTextStyle extends TextStyle {
   CustomTextStyle(
@@ -31,6 +32,8 @@ class EditorController extends GetxController {
   var fontStyle = CustomTextStyle().obs;
   var isNeon = false.obs;
   var isRotated = false.obs;
+  var isAnimated = false.obs;
+  var animationSpeed = 0.0.obs;
 
   makeFontFamily(String family) {
     fontStyle.value.fontFamily = family;
@@ -82,4 +85,12 @@ class EditorController extends GetxController {
     }
     update();
   }
+
+  animateSpeed(double speed, bool animBool){
+    isAnimated.value = animBool;
+    animationSpeed.value = speed;
+    update();
+    print(animationSpeed.value);
+  }
+  
 }

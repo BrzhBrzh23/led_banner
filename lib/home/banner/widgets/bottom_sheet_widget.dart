@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:led_banner/home/banner/widgets/animation_button_widget.dart';
 import 'package:led_banner/home/banner/widgets/color_button_widget.dart';
 import 'package:led_banner/home/banner/widgets/font_button_widget.dart';
 import 'package:led_banner/home/banner/widgets/fontsize_button_widget.dart';
@@ -164,6 +165,30 @@ class CustomBottomSheet extends StatelessWidget {
                                 itemCount: 1,
                                 itemBuilder: ((context, index) =>
                                     TextDirectionTile()),
+                                scrollDirection: Axis.horizontal,
+                                shrinkWrap: true,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 20, top: 10, bottom: 6),
+                              child: Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text('Speed',
+                                      style: GoogleFonts.outfit(
+                                          fontSize: 15, color: Colors.white))),
+                            ),
+                            Container(
+                              alignment: Alignment.centerLeft,
+                              height: 50,
+                              child: ListView.builder(
+
+                                itemCount: animationButtons.length,
+                                itemBuilder: ((context, index) =>
+                                    AnimationButtonTile(
+                                      speed: animationButtons[index].speed,
+                                      isAnimated: animationButtons[index].isAnimated,
+                                    )),
                                 scrollDirection: Axis.horizontal,
                                 shrinkWrap: true,
                               ),
