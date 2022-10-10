@@ -30,6 +30,7 @@ class EditorController extends GetxController {
   var text = ''.obs;
   var fontStyle = CustomTextStyle().obs;
   var isNeon = false.obs;
+  var isRotated = false.obs;
 
   makeFontFamily(String family) {
     fontStyle.value.fontFamily = family;
@@ -71,5 +72,14 @@ class EditorController extends GetxController {
 
     update();
     print(fontStyle.value.shadows);
+  }
+
+  textVertical() {
+    if (isRotated.value == false) {
+      isRotated.value = true;
+    } else {
+      isRotated.value = false;
+    }
+    update();
   }
 }

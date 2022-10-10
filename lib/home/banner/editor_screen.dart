@@ -29,16 +29,32 @@ class _EditorScreenState extends State<EditorScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.end,
+    return Stack(
       children: [
-        Expanded(
-            child: GetBuilder<EditorController>(
-          builder: (controller) => Center(
-            child: Text(editorController.text.value,
-                style: editorController.fontStyle.value),
+        Center(
+          child: SingleChildScrollView(
+            child: Flex(
+              direction: Axis.horizontal,
+              children: [
+                SizedBox(
+                    height: MediaQuery.of(context).size.height,
+                    width: MediaQuery.of(context).size.width,
+                    child: GetBuilder<EditorController>(
+                      builder: (controller) => Center(
+                        child: (editorController.isRotated.value == false)
+                            ? Text(editorController.text.value,
+                                style: editorController.fontStyle.value)
+                            : RotatedBox(
+                                quarterTurns: 1,
+                                child: Text(editorController.text.value,
+                                    style: editorController.fontStyle.value),
+                              ),
+                      ),
+                    )),
+              ],
+            ),
           ),
-        )),
+        ),
         Container(
           alignment: Alignment.bottomCenter,
           child: Padding(
@@ -78,7 +94,7 @@ class _EditorScreenState extends State<EditorScreen> {
                 Expanded(
                   child: SizedBox(
                     height: 60,
-                    child: Ink(
+                    child: DecoratedBox(
                       decoration: BoxDecoration(
                           border:
                               Border.all(color: Color.fromRGBO(45, 42, 56, 1)),
@@ -100,7 +116,7 @@ class _EditorScreenState extends State<EditorScreen> {
                 Expanded(
                   child: SizedBox(
                     height: 60,
-                    child: Ink(
+                    child: DecoratedBox(
                       decoration: BoxDecoration(
                         border:
                             Border.all(color: Color.fromRGBO(45, 42, 56, 1)),

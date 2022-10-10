@@ -5,6 +5,7 @@ import 'package:led_banner/home/banner/widgets/color_button_widget.dart';
 import 'package:led_banner/home/banner/widgets/font_button_widget.dart';
 import 'package:led_banner/home/banner/widgets/fontsize_button_widget.dart';
 import 'package:led_banner/home/banner/widgets/shadows_button_widget.dart';
+import 'package:led_banner/home/banner/widgets/text_direction_button.dart';
 import 'package:led_banner/home/controllers/editor_controller.dart';
 
 class CustomBottomSheet extends StatelessWidget {
@@ -143,6 +144,26 @@ class CustomBottomSheet extends StatelessWidget {
                                       shadows: shadowButtons[index].shadows,
                                       name: shadowButtons[index].name,
                                     )),
+                                scrollDirection: Axis.horizontal,
+                                shrinkWrap: true,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 20, top: 10, bottom: 6),
+                              child: Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text('Text Direction',
+                                      style: GoogleFonts.outfit(
+                                          fontSize: 15, color: Colors.white))),
+                            ),
+                            Container(
+                              alignment: Alignment.centerLeft,
+                              height: 50,
+                              child: ListView.builder(
+                                itemCount: 1,
+                                itemBuilder: ((context, index) =>
+                                    TextDirectionTile()),
                                 scrollDirection: Axis.horizontal,
                                 shrinkWrap: true,
                               ),

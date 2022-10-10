@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:auto_route/auto_route.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:led_banner/routes/router.gr.dart';
 import 'package:get/get.dart';
 
@@ -12,6 +13,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
+
       // appBarBuilder: (_, tabsRouter) => AppBar(
       //   backgroundColor: Colors.indigo,
       //   title: const Text('FlutterBottomNav'),
