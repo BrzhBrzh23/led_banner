@@ -34,6 +34,7 @@ class EditorController extends GetxController {
   var isRotated = false.obs;
   var isAnimated = false.obs;
   var animationSpeed = 0.0.obs;
+  var backgroundColor = Color.fromRGBO(27, 29, 41, 1).obs;
 
   makeFontFamily(String family) {
     fontStyle.value.fontFamily = family;
@@ -91,6 +92,12 @@ class EditorController extends GetxController {
     animationSpeed.value = speed;
     update();
     print(animationSpeed.value);
+  }
+
+  setBackgroundColor(Color color){
+    backgroundColor.value = color;
+    update();
+    print(backgroundColor.value);
   }
   
 }

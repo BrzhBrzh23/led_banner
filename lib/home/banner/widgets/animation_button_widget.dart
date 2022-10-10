@@ -46,7 +46,7 @@ class AnimationButtonTile extends StatelessWidget {
                 editorController.animateSpeed(speed, isAnimated);
               },
               child:
-                  Text((speed == 0)?'Still':(speed/100).toString(), style: GoogleFonts.outfit(color: Colors.white)))),
+                  Text((speed == 0)?'Still':(speed/200).toString(), style: GoogleFonts.outfit(color: Colors.white)))),
     );
   }
 }
