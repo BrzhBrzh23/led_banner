@@ -2,8 +2,10 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:marquee/marquee.dart';
+import 'package:video_player/video_player.dart';
 
 class CustomTextStyle extends TextStyle {
   CustomTextStyle(
@@ -33,8 +35,10 @@ class EditorController extends GetxController {
   var isNeon = false.obs;
   var isRotated = false.obs;
   var isAnimated = false.obs;
+  var dynamicBackground = false.obs;
   var animationSpeed = 0.0.obs;
   var backgroundColor = Color.fromRGBO(27, 29, 41, 1).obs;
+  var numberOfVideo = 0.obs;
 
   makeFontFamily(String family) {
     fontStyle.value.fontFamily = family;
@@ -95,9 +99,18 @@ class EditorController extends GetxController {
   }
 
   setBackgroundColor(Color color){
+    dynamicBackground.value = false;
     backgroundColor.value = color;
     update();
     print(backgroundColor.value);
   }
+
+  setDynamicBackground(int number){
+    numberOfVideo.value = number;
+    dynamicBackground.value = true;
+    print(numberOfVideo.value);
+    update();
+  }
   
+
 }

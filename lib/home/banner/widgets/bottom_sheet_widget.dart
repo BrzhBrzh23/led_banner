@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:led_banner/home/banner/widgets/animation_button_widget.dart';
 import 'package:led_banner/home/banner/widgets/background_color_button_widget.dart';
+import 'package:led_banner/home/banner/widgets/background_video.dart';
 import 'package:led_banner/home/banner/widgets/color_button_widget.dart';
 import 'package:led_banner/home/banner/widgets/font_button_widget.dart';
 import 'package:led_banner/home/banner/widgets/fontsize_button_widget.dart';
@@ -206,28 +207,51 @@ class CustomBottomSheet extends StatelessWidget {
                           SingleChildScrollView(
                             child: Column(
                               children: <Widget>[
-                                 Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 20, top: 10, bottom: 6),
-                                child: Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: Text('Background Color',
-                                        style: GoogleFonts.outfit(
-                                            fontSize: 15,
-                                            color: Colors.white))),
-                              ),
-                              Container(
-                                height: 50,
-                                child: ListView.builder(
-                                  itemCount: backgroundColorButtons.length,
-                                  itemBuilder: ((context, index) =>
-                                      BackgroundColorButtonTile(
-                                        color: backgroundColorButtons[index].color,
-                                      )),
-                                  scrollDirection: Axis.horizontal,
-                                  shrinkWrap: true,
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 20, top: 10, bottom: 6),
+                                  child: Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text('Background Color',
+                                          style: GoogleFonts.outfit(
+                                              fontSize: 15,
+                                              color: Colors.white))),
                                 ),
-                              ),
+                                Container(
+                                  height: 50,
+                                  child: ListView.builder(
+                                    itemCount: backgroundColorButtons.length,
+                                    itemBuilder: ((context, index) =>
+                                        BackgroundColorButtonTile(
+                                          color: backgroundColorButtons[index]
+                                              .color,
+                                        )),
+                                    scrollDirection: Axis.horizontal,
+                                    shrinkWrap: true,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 20, top: 10, bottom: 6),
+                                  child: Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text('Background Color',
+                                          style: GoogleFonts.outfit(
+                                              fontSize: 15,
+                                              color: Colors.white))),
+                                ),
+                                Container(
+                                  height: 50,
+                                  child: ListView.builder(
+                                    itemCount: videoButtons.length,
+                                    itemBuilder: ((context, index) =>
+                                        VideoButtonTile(
+                                            numberOfVideo: videoButtons[index]
+                                                .numberOfVideo)),
+                                    scrollDirection: Axis.horizontal,
+                                    shrinkWrap: true,
+                                  ),
+                                ),
                               ],
                             ),
                           ),

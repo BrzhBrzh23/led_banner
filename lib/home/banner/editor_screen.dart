@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
+import 'package:led_banner/home/banner/widgets/background_video.dart';
 import 'package:led_banner/home/banner/widgets/bottom_sheet_widget.dart';
 import 'package:led_banner/home/controllers/editor_controller.dart';
 import 'package:marquee/marquee.dart';
@@ -35,57 +36,24 @@ class _EditorScreenState extends State<EditorScreen> {
         return Stack(
           children: [
             Container(
-              decoration:
-                  BoxDecoration(color: editorController.backgroundColor.value),
-              child: Center(
-                child: SingleChildScrollView(
-                  child: Flex(
-                    direction: Axis.horizontal,
-                    children: [
-                      SizedBox(
-                          height: MediaQuery.of(context).size.height,
-                          width: MediaQuery.of(context).size.width,
-                          child: Center(
-                              child: (editorController.isAnimated.value ==
-                                          false ||
-                                      editorController.text.value == '')
-                                  ? ((editorController.isRotated.value == false)
-                                      ? Text(editorController.text.value,
-                                          style:
-                                              editorController.fontStyle.value)
-                                      : RotatedBox(
-                                          quarterTurns: 1,
-                                          child: Text(
-                                              editorController.text.value,
-                                              style: editorController
-                                                  .fontStyle.value),
-                                        ))
-                                  : ((editorController.isRotated.value == false)
-                                      ? Marquee(
-                                          text: editorController.text.value,
-                                          style:
-                                              editorController.fontStyle.value,
-                                          velocity: editorController
-                                              .animationSpeed.value,
-                                          blankSpace: 150,
-                                        )
-                                      : RotatedBox(
-                                          quarterTurns: 1,
-                                          child: Marquee(
-                                            text: editorController.text.value,
-                                            style: editorController
-                                                .fontStyle.value,
-                                            velocity: editorController
-                                                .animationSpeed.value,
-                                            blankSpace: 150,
-                                          ),
-                                        )),
-                            ),
-                          ),
-                    ],
-                  ),
-                ),
-              ),
+              decoration: BoxDecoration(
+                  color: (editorController.dynamicBackground.value == true)
+                      ? Colors.transparent
+                      : editorController.backgroundColor.value),
+              child: (editorController.dynamicBackground.value == true)
+                  ? Stack(
+                      children: [
+                        SingleChildScrollView(
+                            child: BackgroundVideo(
+                        )),
+                        BannerText(editorController: editorController),
+                      ],
+                    )
+                  : Stack(
+                      children: [
+                        BannerText(editorController: editorController),
+                      ],
+                    ),
             ),
             Container(
               alignment: Alignment.bottomCenter,
@@ -174,6 +142,60 @@ class _EditorScreenState extends State<EditorScreen> {
           ],
         );
       },
+    );
+  }
+}
+
+class BannerText extends StatelessWidget {
+  const BannerText({
+    Key? key,
+    required this.editorController,
+  }) : super(key: key);
+
+  final EditorController editorController;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: SingleChildScrollView(
+        child: Flex(
+          direction: Axis.horizontal,
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              child: Center(
+                child: (editorController.isAnimated.value == false ||
+                        editorController.text.value == '')
+                    ? ((editorController.isRotated.value == false)
+                        ? Text(editorController.text.value,
+                            style: editorController.fontStyle.value)
+                        : RotatedBox(
+                            quarterTurns: 1,
+                            child: Text(editorController.text.value,
+                                style: editorController.fontStyle.value),
+                          ))
+                    : ((editorController.isRotated.value == false)
+                        ? Marquee(
+                            text: editorController.text.value,
+                            style: editorController.fontStyle.value,
+                            velocity: editorController.animationSpeed.value,
+                            blankSpace: 150,
+                          )
+                        : RotatedBox(
+                            quarterTurns: 1,
+                            child: Marquee(
+                              text: editorController.text.value,
+                              style: editorController.fontStyle.value,
+                              velocity: editorController.animationSpeed.value,
+                              blankSpace: 150,
+                            ),
+                          )),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

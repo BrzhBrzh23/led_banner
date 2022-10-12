@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:led_banner/home/banner/widgets/background_video.dart';
 import 'package:led_banner/home/templates/template_model.dart';
 import 'package:led_banner/home/templates/template_tile.dart';
 import 'package:led_banner/routes/router.gr.dart';
 
 class TemplatesScreen extends StatelessWidget {
   TemplatesScreen({Key? key}) : super(key: key);
+
+  
   final templates = Template.templates;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return 
+    Scaffold(
       backgroundColor: Color.fromRGBO(45, 42, 56, 1),
       appBar: AppBar(
         centerTitle: true,
