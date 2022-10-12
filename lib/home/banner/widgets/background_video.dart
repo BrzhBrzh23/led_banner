@@ -19,24 +19,17 @@ class BackgroundVideoState extends State<BackgroundVideo> {
   void initState() {
     var numberOfVideo = editorController.numberOfVideo.value;
     super.initState();
-    _controller = VideoPlayerController.asset(
-        'lib/assets/videos/$numberOfVideo.mp4');
+    _controller =
+        VideoPlayerController.asset('lib/assets/videos/$numberOfVideo.mp4');
 
     _controller.addListener(() {
-      setState(() {
-      });
+      setState(() {});
     });
     _controller.setLooping(true);
     _controller.initialize().then((_) => setState(() {
           _controller.play();
         }));
   }
-
-  void setVideo(){
-    _controller = VideoPlayerController.asset(
-        'lib/assets/videos/${editorController.numberOfVideo.value}.mp4');
-  }
-
 
   @override
   void dispose() {
