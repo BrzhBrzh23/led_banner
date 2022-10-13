@@ -17,14 +17,15 @@ class BackgroundVideoState extends State<BackgroundVideo> {
 
   @override
   void initState() {
-    var numberOfVideo = editorController.numberOfVideo.value;
-    super.initState();
-    _controller =
-        VideoPlayerController.asset('lib/assets/videos/$numberOfVideo.mp4');
-
-    _controller.addListener(() {
-      setState(() {});
+    editorController.numberOfVideo.listen((_) {
+      setVideo();
     });
+    setVideo();
+  }
+
+  void setVideo() {
+    _controller = VideoPlayerController.asset(
+        'lib/assets/videos/${editorController.numberOfVideo.value}.mp4');
     _controller.setLooping(true);
     _controller.initialize().then((_) => setState(() {
           _controller.play();
@@ -107,12 +108,14 @@ class VideoButtonTile extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
               border: Border.all(),
               color: Color.fromRGBO(45, 42, 56, 1)),
-          child: TextButton(
-              onPressed: () {
+          child: InkWell(
+              onTap: () {
                 editorController.setDynamicBackground(numberOfVideo);
               },
-              child: Text(numberOfVideo.toString(),
-                  style: GoogleFonts.outfit(color: Colors.white)))),
+              child: Ink(
+                child: Image.asset('lib/assets/images/dynamic_background_icons/$numberOfVideo.png',
+                    ),
+              ))),
     );
   }
 }

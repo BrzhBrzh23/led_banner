@@ -39,6 +39,8 @@ class EditorController extends GetxController {
   var animationSpeed = 0.0.obs;
   var backgroundColor = Color.fromRGBO(27, 29, 41, 1).obs;
   var numberOfVideo = 0.obs;
+  var isAbstractImage = false.obs;
+  var numberOfAbstract = 0.obs;
 
   makeFontFamily(String family) {
     fontStyle.value.fontFamily = family;
@@ -91,26 +93,34 @@ class EditorController extends GetxController {
     update();
   }
 
-  animateSpeed(double speed, bool animBool){
+  animateSpeed(double speed, bool animBool) {
     isAnimated.value = animBool;
     animationSpeed.value = speed;
     update();
     print(animationSpeed.value);
   }
 
-  setBackgroundColor(Color color){
+  setBackgroundColor(Color color) {
     dynamicBackground.value = false;
+    isAbstractImage.value = false;
     backgroundColor.value = color;
     update();
     print(backgroundColor.value);
   }
 
-  setDynamicBackground(int number){
+  setDynamicBackground(int number) {
+    isAbstractImage.value = false;
     numberOfVideo.value = number;
     dynamicBackground.value = true;
     print(numberOfVideo.value);
     update();
   }
-  
 
+  setAbstractImage(int number) {
+    dynamicBackground.value = false;
+    numberOfAbstract.value = number;
+    isAbstractImage.value = true;
+    print(numberOfAbstract.value);
+    update();
+  }
 }

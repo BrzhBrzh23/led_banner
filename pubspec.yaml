@@ -41,6 +41,7 @@ dependencies:
   get: ^4.6.5
   marquee: ^2.2.3
   video_player: ^2.4.7
+  chewie: ^1.3.5
 
 dev_dependencies:
   flutter_test:
@@ -95,6 +96,46 @@ flutter:
     - lib/assets/videos/20.mp4
     - lib/assets/videos/21.mp4
     - lib/assets/videos/22.mp4
+    - lib/assets/images/dynamic_background_icons/1.png
+    - lib/assets/images/dynamic_background_icons/2.png
+    - lib/assets/images/dynamic_background_icons/3.png
+    - lib/assets/images/dynamic_background_icons/4.png
+    - lib/assets/images/dynamic_background_icons/5.png
+    - lib/assets/images/dynamic_background_icons/6.png
+    - lib/assets/images/dynamic_background_icons/7.png
+    - lib/assets/images/dynamic_background_icons/8.png
+    - lib/assets/images/dynamic_background_icons/9.png
+    - lib/assets/images/dynamic_background_icons/10.png
+    - lib/assets/images/dynamic_background_icons/11.png
+    - lib/assets/images/dynamic_background_icons/12.png
+    - lib/assets/images/dynamic_background_icons/13.png
+    - lib/assets/images/dynamic_background_icons/14.png
+    - lib/assets/images/dynamic_background_icons/15.png
+    - lib/assets/images/dynamic_background_icons/16.png
+    - lib/assets/images/dynamic_background_icons/17.png
+    - lib/assets/images/dynamic_background_icons/18.png
+    - lib/assets/images/dynamic_background_icons/19.png
+    - lib/assets/images/dynamic_background_icons/20.png
+    - lib/assets/images/dynamic_background_icons/21.png
+    - lib/assets/images/dynamic_background_icons/22.png
+    - lib/assets/images/abstract_background/1.png
+    - lib/assets/images/abstract_background/2.png
+    - lib/assets/images/abstract_background/3.png
+    - lib/assets/images/abstract_background/4.png
+    - lib/assets/images/abstract_background/5.png
+    - lib/assets/images/abstract_background/6.png
+    - lib/assets/images/abstract_background/7.png
+    - lib/assets/images/abstract_background/8.png
+    - lib/assets/images/abstract_background/9.png
+    - lib/assets/images/abstract_background/10.png
+    - lib/assets/images/abstract_background/11.png
+    - lib/assets/images/abstract_background/12.png
+    - lib/assets/images/abstract_background/13.png
+    - lib/assets/images/abstract_background/14.png
+    - lib/assets/images/abstract_background/15.png
+    
+
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

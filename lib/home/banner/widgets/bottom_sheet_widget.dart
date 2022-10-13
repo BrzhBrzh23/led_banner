@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:led_banner/home/banner/widgets/abstract_background_widget.dart';
 import 'package:led_banner/home/banner/widgets/animation_button_widget.dart';
 import 'package:led_banner/home/banner/widgets/background_color_button_widget.dart';
 import 'package:led_banner/home/banner/widgets/background_video.dart';
@@ -235,7 +236,7 @@ class CustomBottomSheet extends StatelessWidget {
                                       left: 20, top: 10, bottom: 6),
                                   child: Align(
                                       alignment: Alignment.centerLeft,
-                                      child: Text('Background Color',
+                                      child: Text('Dynamic Background',
                                           style: GoogleFonts.outfit(
                                               fontSize: 15,
                                               color: Colors.white))),
@@ -248,6 +249,28 @@ class CustomBottomSheet extends StatelessWidget {
                                         VideoButtonTile(
                                             numberOfVideo: videoButtons[index]
                                                 .numberOfVideo)),
+                                    scrollDirection: Axis.horizontal,
+                                    shrinkWrap: true,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 20, top: 10, bottom: 6),
+                                  child: Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text('Abstract background',
+                                          style: GoogleFonts.outfit(
+                                              fontSize: 15,
+                                              color: Colors.white))),
+                                ),
+                                Container(
+                                  height: 50,
+                                  child: ListView.builder(
+                                    itemCount: abstractButtons.length,
+                                    itemBuilder: ((context, index) =>
+                                        AbstractButtonTile(
+                                            numberOfAbstract: abstractButtons[index]
+                                                .numberOfAbstract)),
                                     scrollDirection: Axis.horizontal,
                                     shrinkWrap: true,
                                   ),

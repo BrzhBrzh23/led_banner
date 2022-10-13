@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
+import 'package:led_banner/home/banner/widgets/abstract_background_widget.dart';
 import 'package:led_banner/home/banner/widgets/background_video.dart';
 import 'package:led_banner/home/banner/widgets/bottom_sheet_widget.dart';
 import 'package:led_banner/home/controllers/editor_controller.dart';
@@ -37,23 +38,29 @@ class _EditorScreenState extends State<EditorScreen> {
           children: [
             Container(
               decoration: BoxDecoration(
-                  color: (editorController.dynamicBackground.value == true)
+                  color: (editorController.dynamicBackground.value == true ||
+                          editorController.isAbstractImage.value == true)
                       ? Colors.transparent
                       : editorController.backgroundColor.value),
-              child: (editorController.dynamicBackground.value == true)
+              child: (editorController.isAbstractImage.value == true)
                   ? Stack(
                       children: [
-                        SingleChildScrollView(
-                            child: BackgroundVideo(
-                        )),
+                        SingleChildScrollView(child: AstractBackground()),
                         BannerText(editorController: editorController),
                       ],
                     )
-                  : Stack(
-                      children: [
-                        BannerText(editorController: editorController),
-                      ],
-                    ),
+                  : ((editorController.dynamicBackground.value == true)
+                      ? Stack(
+                          children: [
+                            SingleChildScrollView(child: BackgroundVideo()),
+                            BannerText(editorController: editorController),
+                          ],
+                        )
+                      : Stack(
+                          children: [
+                            BannerText(editorController: editorController),
+                          ],
+                        )),
             ),
             Container(
               alignment: Alignment.bottomCenter,
