@@ -4,32 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:led_banner/constants/custom_text_style.dart';
+import 'package:led_banner/home/banner/banner_model.dart';
+import 'package:led_banner/home/controllers/template_detail_controller.dart';
 import 'package:marquee/marquee.dart';
 import 'package:video_player/video_player.dart';
 
-class CustomTextStyle extends TextStyle {
-  CustomTextStyle(
-      {this.color = Colors.white,
-      this.fontWeight,
-      this.fontSize,
-      this.fontFamily,
-      this.shadows})
-      : super(
-          color: color,
-          fontWeight: fontWeight,
-          fontSize: fontSize,
-          fontFamily: fontFamily,
-          shadows: shadows,
-        );
-
-  Color? color;
-  FontWeight? fontWeight;
-  double? fontSize;
-  String? fontFamily;
-  List<BoxShadow>? shadows;
-}
-
-class EditorController extends GetxController {
+class BannerController extends GetxController {
   var text = ''.obs;
   var fontStyle = CustomTextStyle().obs;
   var isNeon = false.obs;
@@ -41,6 +22,8 @@ class EditorController extends GetxController {
   var numberOfVideo = 0.obs;
   var isAbstractImage = false.obs;
   var numberOfAbstract = 0.obs;
+  late BannerModel bannerModel;
+  var isVisible = true.obs;
 
   makeFontFamily(String family) {
     fontStyle.value.fontFamily = family;
@@ -123,4 +106,12 @@ class EditorController extends GetxController {
     print(numberOfAbstract.value);
     update();
   }
+
+  makeVisible(bool isVis){
+    isVisible.value = isVis;
+    update();
+  }
+
 }
+
+

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:led_banner/home/controllers/editor_controller.dart';
+import 'package:led_banner/home/controllers/banner_controller.dart';
 
 class FontButton {
   const FontButton(this.name, this.fontFamily);
@@ -25,7 +25,7 @@ final List<FontButton> fontbuttons = [
 ];
 
 class FontButtonTile extends StatelessWidget {
-  EditorController editorController = Get.put(EditorController());
+  BannerController editorController = Get.put(BannerController());
 
   final String name;
   final String fontFamily;

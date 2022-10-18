@@ -16,10 +16,10 @@ import 'package:auto_route/empty_router_widgets.dart' as _i2;
 import 'package:flutter/material.dart' as _i8;
 
 import '../home/app_home.dart' as _i1;
-import '../home/banner/editor_screen.dart' as _i6;
-import '../home/settings/settings_screen.dart' as _i3;
-import '../home/templates/template_detail_screen.dart' as _i5;
-import '../home/templates/templates_screen.dart' as _i4;
+import '../home/banner/banner_screen.dart' as _i3;
+import '../home/settings/settings_screen.dart' as _i4;
+import '../home/templates/template_detail.dart' as _i6;
+import '../home/templates/templates_screen.dart' as _i5;
 
 class AppRouter extends _i7.RootStackRouter {
   AppRouter([_i8.GlobalKey<_i8.NavigatorState>? navigatorKey])
@@ -39,16 +39,16 @@ class AppRouter extends _i7.RootStackRouter {
         child: const _i2.EmptyRouterPage(),
       );
     },
-    EditorRouter.name: (routeData) {
+    BannerRouter.name: (routeData) {
       return _i7.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i2.EmptyRouterPage(),
+        child: const _i3.BannerScreen(),
       );
     },
     SettingsRouter.name: (routeData) {
       return _i7.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i3.SettingsScreen(),
+        child: const _i4.SettingsScreen(),
       );
     },
     TemplatesScreen.name: (routeData) {
@@ -56,26 +56,19 @@ class AppRouter extends _i7.RootStackRouter {
           orElse: () => const TemplatesScreenArgs());
       return _i7.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: _i4.TemplatesScreen(key: args.key),
+        child: _i5.TemplatesScreen(key: args.key),
       );
     },
-    SingleTemplateRoute.name: (routeData) {
+    EditorRoute.name: (routeData) {
       final pathParams = routeData.inheritedPathParams;
-      final args = routeData.argsAs<SingleTemplateRouteArgs>(
-          orElse: () => SingleTemplateRouteArgs(
-              templateId: pathParams.getInt('templateId')));
+      final args = routeData.argsAs<EditorRouteArgs>(
+          orElse: () => EditorRouteArgs(id: pathParams.getInt('bannerId')));
       return _i7.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: _i5.SingleTemplatePage(
+        child: _i6.EditorPage(
           key: args.key,
-          templateId: args.templateId,
+          id: args.id,
         ),
-      );
-    },
-    EditorScreen.name: (routeData) {
-      return _i7.MaterialPageX<dynamic>(
-        routeData: routeData,
-        child: const _i6.EditorScreen(),
       );
     },
   };
@@ -97,23 +90,16 @@ class AppRouter extends _i7.RootStackRouter {
                   parent: TemplatesRouter.name,
                 ),
                 _i7.RouteConfig(
-                  SingleTemplateRoute.name,
-                  path: ':templateId',
+                  EditorRoute.name,
+                  path: ':bannerId',
                   parent: TemplatesRouter.name,
                 ),
               ],
             ),
             _i7.RouteConfig(
-              EditorRouter.name,
-              path: 'editor',
+              BannerRouter.name,
+              path: '',
               parent: HomeRoute.name,
-              children: [
-                _i7.RouteConfig(
-                  EditorScreen.name,
-                  path: '',
-                  parent: EditorRouter.name,
-                )
-              ],
             ),
             _i7.RouteConfig(
               SettingsRouter.name,
@@ -152,20 +138,19 @@ class TemplatesRouter extends _i7.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i2.EmptyRouterPage]
-class EditorRouter extends _i7.PageRouteInfo<void> {
-  const EditorRouter({List<_i7.PageRouteInfo>? children})
+/// [_i3.BannerScreen]
+class BannerRouter extends _i7.PageRouteInfo<void> {
+  const BannerRouter()
       : super(
-          EditorRouter.name,
-          path: 'editor',
-          initialChildren: children,
+          BannerRouter.name,
+          path: '',
         );
 
-  static const String name = 'EditorRouter';
+  static const String name = 'BannerRouter';
 }
 
 /// generated route for
-/// [_i3.SettingsScreen]
+/// [_i4.SettingsScreen]
 class SettingsRouter extends _i7.PageRouteInfo<void> {
   const SettingsRouter()
       : super(
@@ -177,7 +162,7 @@ class SettingsRouter extends _i7.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i4.TemplatesScreen]
+/// [_i5.TemplatesScreen]
 class TemplatesScreen extends _i7.PageRouteInfo<TemplatesScreenArgs> {
   TemplatesScreen({_i8.Key? key})
       : super(
@@ -201,48 +186,36 @@ class TemplatesScreenArgs {
 }
 
 /// generated route for
-/// [_i5.SingleTemplatePage]
-class SingleTemplateRoute extends _i7.PageRouteInfo<SingleTemplateRouteArgs> {
-  SingleTemplateRoute({
+/// [_i6.EditorPage]
+class EditorRoute extends _i7.PageRouteInfo<EditorRouteArgs> {
+  EditorRoute({
     _i8.Key? key,
-    required int templateId,
+    required int id,
   }) : super(
-          SingleTemplateRoute.name,
-          path: ':templateId',
-          args: SingleTemplateRouteArgs(
+          EditorRoute.name,
+          path: ':bannerId',
+          args: EditorRouteArgs(
             key: key,
-            templateId: templateId,
+            id: id,
           ),
-          rawPathParams: {'templateId': templateId},
+          rawPathParams: {'bannerId': id},
         );
 
-  static const String name = 'SingleTemplateRoute';
+  static const String name = 'EditorRoute';
 }
 
-class SingleTemplateRouteArgs {
-  const SingleTemplateRouteArgs({
+class EditorRouteArgs {
+  const EditorRouteArgs({
     this.key,
-    required this.templateId,
+    required this.id,
   });
 
   final _i8.Key? key;
 
-  final int templateId;
+  final int id;
 
   @override
   String toString() {
-    return 'SingleTemplateRouteArgs{key: $key, templateId: $templateId}';
+    return 'EditorRouteArgs{key: $key, id: $id}';
   }
-}
-
-/// generated route for
-/// [_i6.EditorScreen]
-class EditorScreen extends _i7.PageRouteInfo<void> {
-  const EditorScreen()
-      : super(
-          EditorScreen.name,
-          path: '',
-        );
-
-  static const String name = 'EditorScreen';
 }

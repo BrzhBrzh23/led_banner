@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:led_banner/home/controllers/editor_controller.dart';
+import 'package:led_banner/home/controllers/template_detail_controller.dart';
 
 
 
@@ -30,10 +30,12 @@ class FontSizeButtonTile extends StatelessWidget {
   
   final String name;
   final double size;
+  final int id;
 
   FontSizeButtonTile({
     Key? key,
     required this.name,
+    required this.id,
     required this.size,
   }) : super(key: key);
 
@@ -49,7 +51,7 @@ class FontSizeButtonTile extends StatelessWidget {
               border: Border.all(),
               color: Color.fromRGBO(45, 42, 56, 1)),
           child: TextButton(
-              onPressed: () {editorController.makeFontSize(size);}, child: Text(name, style: GoogleFonts.outfit(color: Colors.white)))),
+              onPressed: () {editorController.makeFontSize(size,  editorController.bannerList.value[id].id);}, child: Text(name, style: GoogleFonts.outfit(color: Colors.white)))),
     );
   }
 }

@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:led_banner/home/controllers/editor_controller.dart';
+import 'package:led_banner/home/controllers/template_detail_controller.dart';
 
 class TextDirectionTile extends StatelessWidget {
   EditorController editorController = Get.put(EditorController());
 
+  final int id;
+
   TextDirectionTile({
-    Key? key,
+    Key? key, 
+    required this.id,
   }) : super(key: key);
 
   @override
@@ -24,7 +27,7 @@ class TextDirectionTile extends StatelessWidget {
             ),
             child: TextButton(
                 onPressed: () {
-                  editorController.textVertical();
+                  editorController.textVertical(editorController.bannerList.value[id].id);
                 },
                 child: Row(
                   children: [

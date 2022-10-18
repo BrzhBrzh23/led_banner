@@ -1,7 +1,9 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:led_banner/home/controllers/editor_controller.dart';
+import 'package:led_banner/home/controllers/banner_controller.dart';
 import 'package:video_player/video_player.dart';
 
 class BackgroundVideo extends StatefulWidget {
@@ -13,7 +15,7 @@ class BackgroundVideo extends StatefulWidget {
 
 class BackgroundVideoState extends State<BackgroundVideo> {
   late VideoPlayerController _controller;
-  EditorController editorController = Get.put(EditorController());
+  BannerController editorController = Get.put(BannerController());
 
   @override
   void initState() {
@@ -40,13 +42,13 @@ class BackgroundVideoState extends State<BackgroundVideo> {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<EditorController>(
+    return GetBuilder<BannerController>(
       builder: (controller) {
         return RotatedBox(
           quarterTurns: 1,
           child: _controller.value.isInitialized
               ? AspectRatio(
-                  aspectRatio: _controller.value.aspectRatio,
+                  aspectRatio: window.devicePixelRatio,
                   child: VideoPlayer(_controller),
                 )
               : Text('Nodata'),
@@ -88,7 +90,7 @@ final List<VideoButton> videoButtons = [
 ];
 
 class VideoButtonTile extends StatelessWidget {
-  EditorController editorController = Get.put(EditorController());
+  BannerController editorController = Get.put(BannerController());
 
   final int numberOfVideo;
 

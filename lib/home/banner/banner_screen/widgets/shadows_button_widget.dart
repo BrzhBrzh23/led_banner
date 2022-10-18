@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:led_banner/home/controllers/editor_controller.dart';
+import 'package:led_banner/home/controllers/banner_controller.dart';
 
 class ShadowButton {
   ShadowButton(this.shadows, this.name);
@@ -13,14 +13,14 @@ class ShadowButton {
 final List<ShadowButton> shadowButtons = [
   ShadowButton([
     BoxShadow(
-      color: Get.find<EditorController>().fontStyle.value.color!,
+      color: Get.find<BannerController>().fontStyle.value.color!,
       blurRadius: 30,
     )
   ], 'Aa'),
 ];
 
 class ShadowButtonTile extends StatelessWidget {
-  EditorController editorController = Get.put(EditorController());
+  BannerController editorController = Get.put(BannerController());
 
   final List<BoxShadow> shadows;
   final String name;

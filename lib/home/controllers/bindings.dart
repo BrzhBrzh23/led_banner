@@ -1,4 +1,5 @@
-import 'package:led_banner/home/controllers/editor_controller.dart';
+import 'package:led_banner/home/controllers/banner_controller.dart';
+import 'package:led_banner/home/controllers/template_detail_controller.dart';
 import 'package:get/get.dart';
 
 class EditorBindings implements Bindings {
@@ -6,5 +7,7 @@ class EditorBindings implements Bindings {
   @override
   void dependencies() {
     Get.lazyPut(() => EditorController());
+    Get.lazyPut(() => BannerController());
+
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:led_banner/home/controllers/editor_controller.dart';
+import 'package:led_banner/home/controllers/template_detail_controller.dart';
 
 class AnimationButton {
   AnimationButton(this.isAnimated, this.speed);
@@ -23,10 +23,12 @@ class AnimationButtonTile extends StatelessWidget {
 
   final bool isAnimated;
   final double speed;
+  final int id;
 
   AnimationButtonTile({
     Key? key,
     required this.isAnimated,
+    required this.id,
     required this.speed,
   }) : super(key: key);
 
@@ -43,7 +45,7 @@ class AnimationButtonTile extends StatelessWidget {
               color: Color.fromRGBO(45, 42, 56, 1)),
           child: TextButton(
               onPressed: () {
-                editorController.animateSpeed(speed, isAnimated);
+                editorController.animateSpeed(speed, isAnimated, editorController.bannerList.value[id].id);
               },
               child:
                   Text((speed == 0)?'Still':(speed/200).toString(), style: GoogleFonts.outfit(color: Colors.white)))),

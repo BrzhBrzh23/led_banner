@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:led_banner/home/banner/widgets/abstract_background_widget.dart';
-import 'package:led_banner/home/banner/widgets/animation_button_widget.dart';
-import 'package:led_banner/home/banner/widgets/background_color_button_widget.dart';
-import 'package:led_banner/home/banner/widgets/background_video.dart';
-import 'package:led_banner/home/banner/widgets/color_button_widget.dart';
-import 'package:led_banner/home/banner/widgets/font_button_widget.dart';
-import 'package:led_banner/home/banner/widgets/fontsize_button_widget.dart';
-import 'package:led_banner/home/banner/widgets/shadows_button_widget.dart';
-import 'package:led_banner/home/banner/widgets/text_direction_button.dart';
-import 'package:led_banner/home/controllers/editor_controller.dart';
+import 'package:led_banner/home/banner/banner_screen/widgets/abstract_background_widget.dart';
+import 'package:led_banner/home/banner/banner_screen/widgets/animation_button_widget.dart';
+import 'package:led_banner/home/banner/banner_screen/widgets/background_color_button_widget.dart';
+import 'package:led_banner/home/banner/banner_screen/widgets/background_video.dart';
+import 'package:led_banner/home/banner/banner_screen/widgets/color_button_widget.dart';
+import 'package:led_banner/home/banner/banner_screen/widgets/font_button_widget.dart';
+import 'package:led_banner/home/banner/banner_screen/widgets/fontsize_button_widget.dart';
+import 'package:led_banner/home/banner/banner_screen/widgets/shadows_button_widget.dart';
+import 'package:led_banner/home/banner/banner_screen/widgets/text_direction_button.dart';
+import 'package:led_banner/home/controllers/banner_controller.dart';
 
 class CustomBottomSheet extends StatelessWidget {
-  EditorController editorController = Get.put(EditorController());
+  BannerController editorController = Get.put(BannerController());
 
   CustomBottomSheet({
     Key? key,
