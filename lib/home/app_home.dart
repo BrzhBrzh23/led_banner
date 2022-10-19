@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:get/get.dart';
 import 'package:led_banner/home/controllers/banner_controller.dart';
 import 'package:led_banner/routes/router.gr.dart';
@@ -21,12 +20,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
-      // appBarBuilder: (_, tabsRouter) => AppBar(
-      //   backgroundColor: Colors.indigo,
-      //   title: const Text('FlutterBottomNav'),
-      //   centerTitle: true,
-      //   leading: const AutoBackButton(),
-      // ),
       backgroundColor: const Color.fromRGBO(27, 29, 41, 1),
       routes: const [
         TemplatesRouter(),
