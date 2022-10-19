@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:led_banner/home/templates/widgets/background_video.dart';
 import 'package:led_banner/home/controllers/template_detail_controller.dart';
-import 'package:led_banner/home/templates/template_detail.dart';
 
 import '../../routes/router.gr.dart';
 

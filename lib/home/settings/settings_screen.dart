@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:led_banner/home/settings/gradient_icon.dart';
+import 'package:led_banner/constants/gradient_icon.dart';
 import 'package:led_banner/home/settings/setting_model.dart';
 
 class SettingsScreen extends StatelessWidget {

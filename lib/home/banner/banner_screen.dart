@@ -4,18 +4,13 @@ import 'dart:ui' as ui;
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
-import 'package:gallery_saver/gallery_saver.dart';
-import 'package:led_banner/home/app_home.dart';
-import 'package:path_provider/path_provider.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
-import 'package:led_banner/home/banner/banner_screen/widgets/background_video.dart';
-import 'package:led_banner/home/banner/banner_screen/widgets/bottom_sheet_widget.dart';
+import 'package:led_banner/home/banner/widgets/background_video.dart';
+import 'package:led_banner/home/banner/widgets/bottom_sheet_widget.dart';
 import 'package:led_banner/home/controllers/banner_controller.dart';
-import 'package:led_banner/home/banner/banner_screen/widgets/abstract_background_widget.dart';
+import 'package:led_banner/home/banner/widgets/abstract_background_widget.dart';
 import 'package:marquee/marquee.dart';
 
 class BannerScreen extends StatefulWidget {
@@ -106,21 +101,6 @@ class _BannerScreenState extends State<BannerScreen> {
                                 setState(() {
                                   editorController.makeVisible(false);
                                 });
-                                // setState(() {
-                                //   editorController.addBanner(
-                                //       addingController.bannerList.length,
-                                //       editorController.text.value,
-                                //       editorController.fontStyle.value,
-                                //       editorController.isNeon.value,
-                                //       editorController.isRotated.value,
-                                //       editorController.isAnimated.value,
-                                //       editorController.dynamicBackground.value,
-                                //       editorController.animationSpeed.value,
-                                //       editorController.backgroundColor.value,
-                                //       editorController.numberOfVideo.value,
-                                //       editorController.isAbstractImage.value,
-                                //       editorController.numberOfAbstract.value);
-                                // });
                               },
                               child: const Icon(
                                 Icons.done,
@@ -216,37 +196,6 @@ class _SavingBannerState extends State<SavingBanner> {
       ),
     );
   }
-
-  // Future<void> saveScreenshot() async {
-  //   setState(() {
-  //     screenshotButtonText = 'saving in progress...';
-  //   });
-  //   try {
-  //     //extract bytes
-  //     final RenderRepaintBoundary boundary = _globalKey.currentContext!
-  //         .findRenderObject() as RenderRepaintBoundary;
-  //     final ui.Image image =
-  //         await boundary.toImage(pixelRatio: window.devicePixelRatio);
-  //     final ByteData? byteData =
-  //         await image.toByteData(format: ui.ImageByteFormat.png);
-  //     final Uint8List pngBytes = byteData!.buffer.asUint8List();
-
-  //     //create file
-  //     final String dir = (await getApplicationDocumentsDirectory()).path;
-  //     final String fullPath = '$dir/${DateTime.now().millisecond}.png';
-  //     File capturedFile = File(fullPath);
-  //     await capturedFile.writeAsBytes(pngBytes);
-  //     print(capturedFile.path);
-
-  //     await GallerySaver.saveImage(capturedFile.path).then((value) {
-  //       setState(() {
-  //         screenshotButtonText = 'screenshot saved!';
-  //       });
-  //     });
-  //   } catch (e) {
-  //     print(e);
-  //   }
-  // }
 }
 
 class BannerText extends StatelessWidget {
