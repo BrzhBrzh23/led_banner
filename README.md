@@ -14,6 +14,8 @@ Features:
 - Different dynamic and static backgrounds
 
 
+<img src="https://user-images.githubusercontent.com/111867806/196599277-2b968dbd-302f-4555-84f8-af893fa4ff38.png" width="100">
+
 ![Screenshot_1666153811](https://user-images.githubusercontent.com/111867806/196599277-2b968dbd-302f-4555-84f8-af893fa4ff38.png)
 
 ![Screenshot_1666153733](https://user-images.githubusercontent.com/111867806/196599342-fbc6ce6f-980a-44f7-a3e8-88ba9ebd6ce7.png)
